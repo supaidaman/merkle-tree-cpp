@@ -1,10 +1,4 @@
 #include "merkle-tree.hpp"
-//
-
-// int main()
-// {
-//     std::cout << "Hello World" << std::endl;
-// }
 
 node ::node(std::string hash_string)
 {
@@ -19,46 +13,36 @@ node ::~node()
     delete right;
 }
 
-// int node ::get_key() { return key; }
-// int node ::get_value() { return value; }
 node *node ::get_left() { return left; }
 node *node ::get_right() { return right; }
+std::string node::get_hash() { return hash_string; }
 
-// void node ::set_key(int value) { key = value; }
-// void node ::set_value(int value) { this->value = value; }
-
-// node *node ::find(node *tree, int key)
-// {
-//     if (tree == nullptr)
-//     {
-//         return nullptr;
-//     }
-//     if (tree->get_value() == key)
-//     {
-//         return tree;
-//     }
-//     else if (key < tree->get_key())
-//     {
-//         return find(tree->left, key);
-//     }
-//     else
-//     {
-//         return find(tree->right, key);
-//     }
-// }
-
-// tree::tree(int key, int value)
-// {
-//     root = new node(key, value);
-// }
-
-// tree::~tree()
-// {
-//     delete root;
-// }
+void node::set_hash(std::string value) { hash_string = value; }
+void node::set_left(node *n) { left = n; }
+void node::set_right(node *n) { right = n; }
 
 merkle_tree::merkle_tree(std::vector<node *> data)
 {
+    std::vector<node *> node_blocks;
+    while (data.size() != 1)
+    {
+        for (int i = 0, j = 0; i < data.size(); i = i + 2, j++)
+        {
+            if (i != data.size() - 1)
+            {
+                data.push_back(new node(picosha2::hash256_hex_string(data[i]->get_hash() + data[i + 1]->get_hash())));
+                node_blocks[j]->set_left(data[i]);
+                node_blocks[j]->set_right(data[i + 1]);
+            }
+            else
+            {
+                node_blocks.push_back(data[i]);
+            }
+        }
+        data = node_blocks;
+        node_blocks.clear();
+    }
+    this->root = data[0];
 }
 void merkle_tree::print_tree(node *n, int i)
 {

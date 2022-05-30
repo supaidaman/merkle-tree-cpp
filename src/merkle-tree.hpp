@@ -11,6 +11,7 @@
 #include <memory>
 #include <string>
 #include <vector>
+#include "picosha2.h"
 class node
 {
 private:
@@ -26,8 +27,10 @@ public:
     node *get_left();
     node *get_right();
 
-    void set_hash(int value);
-
+    void set_left(node *n);
+    void set_right(node *n);
+    void set_hash(std::string value);
+    std::string get_hash();
     // node *find(node *tree, int key);
     // void insert_node(node *tree, node *item);
     // void delete_element(int key);
