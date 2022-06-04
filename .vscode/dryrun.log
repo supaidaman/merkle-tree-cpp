@@ -1,0 +1,10 @@
+make --dry-run --always-make --keep-going --print-directory
+make: Entering directory '/home/vinicius.lcosta/Documentos/doutorado/EDD/merkle-tree'
+ 
+g++ -std=c++11 -Wall -o obj/merkle-tree.o -c src/merkle-tree.cpp
+g++ -std=c++11 -Wall -o obj/patricia-trie.o -c src/patricia-trie.cpp
+g++ -std=c++11 -Wall -o obj/node.o -c src/node.cpp
+g++ -std=c++11 -Wall -o obj/main.o -c src/main.cpp
+g++ -std=c++11 -Wall -o merkle-tree obj/merkle-tree.o obj/patricia-trie.o obj/node.o obj/main.o 
+make: Leaving directory '/home/vinicius.lcosta/Documentos/doutorado/EDD/merkle-tree'
+ 
