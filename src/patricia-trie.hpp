@@ -33,8 +33,8 @@ class PatriciaTree
 {
 private:
     PatriciaNode *root;
-    void addRecursive(string wordPart, PatriciaNode *currentNode);
-    void deleteRecursive(string wordPart, PatriciaNode *currentNode);
+    void addRecursive(std::string wordPart, PatriciaNode *currentNode);
+    void deleteRecursive(std::string wordPart, PatriciaNode *currentNode);
 
 public:
     void addElement(std::string element); // transaction
@@ -42,7 +42,7 @@ public:
     PatriciaTree();
     PatriciaTree(std::string hash, std::string data);
     ~PatriciaTree();
-    void deleteElement(string label);
+    void deleteElement(std::string label);
     // bool bit();
     // bool search(int i);
     // Node *search(Node *node);

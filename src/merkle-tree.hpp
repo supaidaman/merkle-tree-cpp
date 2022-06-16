@@ -4,7 +4,6 @@
 #include <memory>
 #include <string>
 #include <vector>
-#include "picosha2.hpp"
 #include "node.hpp"
 
 class MerkleTree
@@ -14,6 +13,7 @@ private:
 
 public:
     MerkleTree(std::vector<Node *> data);
+    Node *getRoot() { return root; }
     // void add(int key, int value);
     ~MerkleTree();
     void printTree(Node *n, int i);

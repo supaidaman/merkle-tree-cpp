@@ -1,4 +1,5 @@
 #pragma once
+#include <string>
 class Node
 {
 private:
@@ -9,8 +10,8 @@ private:
     int bitLength;
 
 public:
-    Node(std::string hash_string);
-    Node(std::string hash_string, std::string data);
+    Node(std::string hashString);
+    Node(std::string hashString, std::string data);
     ~Node();
 
     Node *getLeft();

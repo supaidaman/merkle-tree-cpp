@@ -1,5 +1,4 @@
 #include "node.hpp"
-#include <string>
 
 Node ::Node(std::string hash_string)
 {
