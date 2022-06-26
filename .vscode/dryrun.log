@@ -1,11 +1,19 @@
-make --dry-run --always-make --keep-going --print-directory
+make --dry-run --keep-going --print-directory
 make: Entering directory '/home/vinicius.lcosta/Documentos/doutorado/EDD/merkle-tree'
  
-g++ -std=c++11 -Wall -o obj/merkle-tree.o -c src/merkle-tree.cpp
+g++-12  -fdata-sections -ffunction-sections  -O3 -Wall -Wextra     -I/usr/local/include/boost_1_79_0 -I/home/vinicius.lcosta/Documentos/doutorado/EDD/merkle-tree/include -c src/RLP.cpp -o src/RLP.o
  
-g++ -std=c++11 -Wall -o obj/patricia-trie.o -c src/patricia-trie.cpp
-g++ -std=c++11 -Wall -o obj/node.o -c src/node.cpp
-g++ -std=c++11 -Wall -o obj/main.o -c src/main.cpp
-g++ -std=c++11 -Wall -o merkle-tree obj/merkle-tree.o obj/patricia-trie.o obj/node.o obj/main.o 
+g++-12  -fdata-sections -ffunction-sections  -O3 -Wall -Wextra     -I/usr/local/include/boost_1_79_0 -I/home/vinicius.lcosta/Documentos/doutorado/EDD/merkle-tree/include -c src/merkle-tree.cpp -o src/merkle-tree.o
+g++-12  -fdata-sections -ffunction-sections  -O3 -Wall -Wextra     -I/usr/local/include/boost_1_79_0 -I/home/vinicius.lcosta/Documentos/doutorado/EDD/merkle-tree/include -c src/patricia-trie.cpp -o src/patricia-trie.o
+ 
+g++-12  -fdata-sections -ffunction-sections  -O3 -Wall -Wextra     -I/usr/local/include/boost_1_79_0 -I/home/vinicius.lcosta/Documentos/doutorado/EDD/merkle-tree/include -c src/Common.cpp -o src/Common.o
+g++-12  -fdata-sections -ffunction-sections  -O3 -Wall -Wextra     -I/usr/local/include/boost_1_79_0 -I/home/vinicius.lcosta/Documentos/doutorado/EDD/merkle-tree/include -c src/node.cpp -o src/node.o
+ 
+g++-12  -fdata-sections -ffunction-sections  -O3 -Wall -Wextra     -I/usr/local/include/boost_1_79_0 -I/home/vinicius.lcosta/Documentos/doutorado/EDD/merkle-tree/include -c src/FixedHash.cpp -o src/FixedHash.o
+ 
+g++-12  -fdata-sections -ffunction-sections  -O3 -Wall -Wextra     -I/usr/local/include/boost_1_79_0 -I/home/vinicius.lcosta/Documentos/doutorado/EDD/merkle-tree/include -c src/CommonData.cpp -o src/CommonData.o
+g++-12  -fdata-sections -ffunction-sections  -O3 -Wall -Wextra     -I/usr/local/include/boost_1_79_0 -I/home/vinicius.lcosta/Documentos/doutorado/EDD/merkle-tree/include -c src/main.cpp -o src/main.o
+g++-12  -fdata-sections -ffunction-sections  -O3 -Wall -Wextra     -I/usr/local/include/boost_1_79_0 -I/home/vinicius.lcosta/Documentos/doutorado/EDD/merkle-tree/include    ./src/RLP.o ./src/merkle-tree.o ./src/patricia-trie.o ./src/Common.o ./src/node.o ./src/FixedHash.o ./src/CommonData.o ./src/main.o  -Wl,--gc-sections -Wl,--strip-all             -o zzz_pear_test
+echo Type ./zzz_pear_test to execute the program.
 make: Leaving directory '/home/vinicius.lcosta/Documentos/doutorado/EDD/merkle-tree'
  

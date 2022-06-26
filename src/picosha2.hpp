@@ -166,7 +166,7 @@ namespace picosha2
     }
 
     template <typename InIter>
-    void bytes_to_hex_string(InIter first, InIter last, std::string &hex_str)
+    void vector_ref<std::byte> _to_hex_string(InIter first, InIter last, std::string &hex_str)
     {
         std::ostringstream oss;
         output_hex(first, last, oss);
@@ -174,24 +174,24 @@ namespace picosha2
     }
 
     template <typename InContainer>
-    void bytes_to_hex_string(const InContainer &bytes, std::string &hex_str)
+    void vector_ref<std::byte> _to_hex_string(const InContainer &vector_ref<std::byte>, std::string &hex_str)
     {
-        bytes_to_hex_string(bytes.begin(), bytes.end(), hex_str);
+        vector_ref<std::byte> _to_hex_string(vector_ref<std::byte>.begin(), vector_ref<std::byte>.end(), hex_str);
     }
 
     template <typename InIter>
-    std::string bytes_to_hex_string(InIter first, InIter last)
+    std::string vector_ref<std::byte> _to_hex_string(InIter first, InIter last)
     {
         std::string hex_str;
-        bytes_to_hex_string(first, last, hex_str);
+        vector_ref<std::byte> _to_hex_string(first, last, hex_str);
         return hex_str;
     }
 
     template <typename InContainer>
-    std::string bytes_to_hex_string(const InContainer &bytes)
+    std::string vector_ref<std::byte> _to_hex_string(const InContainer &vector_ref<std::byte>)
     {
         std::string hex_str;
-        bytes_to_hex_string(bytes, hex_str);
+        vector_ref<std::byte> _to_hex_string(vector_ref<std::byte>, hex_str);
         return hex_str;
     }
 
@@ -246,7 +246,7 @@ namespace picosha2
         }
 
         template <typename OutIter>
-        void get_hash_bytes(OutIter first, OutIter last) const
+        void get_hash_vector_ref<std::byte>(OutIter first, OutIter last) const
         {
             for (const word_t *iter = h_; iter != h_ + 8; ++iter)
             {
@@ -283,7 +283,7 @@ namespace picosha2
             std::copy(data_length_digits_, data_length_digits_ + 4,
                       data_bit_length_digits);
 
-            // convert byte length to bit length (multiply 8 or shift 3 times left)
+            // convert std::byte length to bit length (multiply 8 or shift 3 times left)
             word_t carry = 0;
             for (std::size_t i = 0; i < 4; ++i)
             {
@@ -310,8 +310,8 @@ namespace picosha2
                                     std::string &hex_str)
     {
         byte_t hash[k_digest_size];
-        hasher.get_hash_bytes(hash, hash + k_digest_size);
-        return bytes_to_hex_string(hash, hash + k_digest_size, hex_str);
+        hasher.get_hash_vector_ref<std::byte>(hash, hash + k_digest_size);
+        return vector_ref<std::byte> _to_hex_string(hash, hash + k_digest_size, hex_str);
     }
 
     inline std::string get_hash_hex_string(const hash256_one_by_one &hasher)
@@ -331,7 +331,7 @@ namespace picosha2
             // hasher.init();
             hasher.process(first, last);
             hasher.finish();
-            hasher.get_hash_bytes(first2, last2);
+            hasher.get_hash_vector_ref<std::byte>(first2, last2);
         }
 
         template <typename InputIter, typename OutIter>
@@ -356,7 +356,7 @@ namespace picosha2
                 hasher.process(buffer.begin(), buffer.begin() + size);
             }
             hasher.finish();
-            hasher.get_hash_bytes(first2, last2);
+            hasher.get_hash_vector_ref<std::byte>(first2, last2);
         }
     }
 
