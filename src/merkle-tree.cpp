@@ -1,59 +1,62 @@
 #include "merkle-tree.hpp"
-//
+#include <string>
+#include <iomanip>
+#include "sha.hpp"
 
-// int main()
-// {
-//     std::cout << "Hello World" << std::endl;
-// }
+Node *Node ::getLeft() { return left; }
+Node *Node ::getRight() { return right; }
+std::string Node::getHash() { return hashString; }
 
-node ::node(int key, int value)
+void Node::setHash(std::string value) { hashString = value; }
+void Node::setLeft(Node *n) { left = n; }
+void Node::setRight(Node *n) { right = n; }
+
+MerkleTree::MerkleTree(std::vector<Node *> data)
 {
-    key = key;
-    value = value;
-    left = nullptr;
-    right = nullptr;
+    std::vector<Node *> node_blocks;
+
+    while (data.size() != 1)
+    {
+
+        for (int i = 0, j = 0; i < data.size(); i = i + 2, j++)
+        {
+
+            if (i != data.size() - 1)
+            {
+                node_blocks.push_back(new Node(hash_sha256(data[i]->getHash() + data[i + 1]->getHash())));
+                node_blocks[j]->setLeft(data[i]);
+                node_blocks[j]->setRight(data[i + 1]);
+            }
+            else
+            {
+                node_blocks.push_back(data[i]);
+            }
+        }
+        data = node_blocks;
+        node_blocks.clear();
+    }
+    this->root = data[0];
+}
+void MerkleTree::printTree(Node *n, int i)
+{
+    if (n)
+    {
+        if (n->getLeft())
+        {
+            printTree(n->getLeft(), i + 4);
+        }
+        if (n->getRight())
+        {
+            printTree(n->getRight(), i + 4);
+        }
+        if (i)
+        {
+            std::cout << std::setw(i) << ' ';
+        }
+        std::cout << n->getHash() << "\n ";
+    }
 }
 
-node ::~node()
+MerkleTree::~MerkleTree()
 {
-    delete left;
-    delete right;
-}
-
-int node ::get_key() { return key; }
-int node ::get_value() { return value; }
-node *node ::get_left() { return left; }
-node *node ::get_right() { return right; }
-
-void node ::set_key(int value) { key = value; }
-void node ::set_value(int value) { this->value = value; }
-
-node *node ::find(node *tree, int key)
-{
-    if (tree == nullptr)
-    {
-        return nullptr;
-    }
-    if (tree->get_value() == key)
-    {
-        return tree;
-    }
-    else if (key < tree->get_key())
-    {
-        return find(tree->left, key);
-    }
-    else
-    {
-        return find(tree->right, key);
-    }
-}
-
-tree::tree(int key, int value)
-{
-    root = new node(key, value);
-}
-
-tree::~tree()
-{
-    delete root;
 }
