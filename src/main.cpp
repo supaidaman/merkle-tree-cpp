@@ -3,13 +3,22 @@
 #include "sha.hpp"
 #include <iostream>
 
+using namespace std;
+
 int main()
 {
     // MerkleTree *t = new MerkleTree();
     // delete t;
-    // PatriciaTree *pTree = new PatriciaTree();
-    // pTree->addElement("romane");
+    PatriciaTrie *pTree = new PatriciaTrie("");
+    pTree->addElement("roman");
 
+    pTree->addElement("romane");
+    pTree->addElement("romanus");
+    pTree->addElement("romulus");
+    pTree->addElement("maça");
+    pTree->addElement("mato");
+    pTree->printFullTree();
+    cout << "predecessor " << pTree->findPredecessor("romulus") << endl;
     std::vector<Node *> leaves;
     // create sample data
     leaves.push_back(new Node(hash_sha256("abcdefg")));
@@ -29,8 +38,8 @@ int main()
     }
 
     MerkleTree *hashTree = new MerkleTree(leaves);
-    std::cout << hashTree->getRoot()->getHash() << std::endl;
-    hashTree->printTree(hashTree->getRoot(), 0);
+    // cout << hashTree->getRoot()->getHash() << endl;
+    // hashTree->printTree(hashTree->getRoot(), 0);
 
     for (unsigned int k = 0; k < leaves.size(); k++)
     {
@@ -38,7 +47,7 @@ int main()
     }
 
     delete hashTree;
-    std::cout << "Hello World" << std::endl;
 
+    delete pTree;
     return 0;
 }

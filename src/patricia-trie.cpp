@@ -5,9 +5,8 @@
 //#include <vector>
 using namespace std;
 
-void PatriciaTree::addElement(string element)
+void PatriciaTrie::addElement(string element)
 {
-    cout << "a" << endl;
     addRecursive(element, root);
 }
 
@@ -16,14 +15,18 @@ int matchingConsecutiveChars(string word, PatriciaNode *currentNode)
     // todo fix:
     int matches = 0;
     int minlength = 0;
-    cout << currentNode->stringData << endl;
+    // cout << "match consecutive " << currentNode->stringData << endl;
     if (currentNode->stringData.length() >= word.length())
+    {
         minlength = word.length();
+    }
     else if (currentNode->stringData.length() < word.length())
+    {
         minlength = currentNode->stringData.length();
-
-    cout << "v" << endl;
+    }
+    // cout << "min consecutive " << minlength << endl;
     if (minlength > 0)
+    {
 
         for (int i = 0; i < minlength; i++)
         {
@@ -34,12 +37,15 @@ int matchingConsecutiveChars(string word, PatriciaNode *currentNode)
 
                 break;
         }
+    }
 
     return matches;
 }
 
-void PatriciaTree::addRecursive(string wordPart, PatriciaNode *currentNode)
+void PatriciaTrie::addRecursive(string wordPart, PatriciaNode *currentNode)
 {
+    // cout << "current word to add " << wordPart << endl;
+    // cout << "current word in tree" << currentNode->stringData << endl;
     auto matches = matchingConsecutiveChars(wordPart, currentNode);
 
     if ((matches == 0) || (currentNode == root) ||
@@ -48,14 +54,17 @@ void PatriciaTree::addRecursive(string wordPart, PatriciaNode *currentNode)
 
         bool inserted = false;
         auto newWordPart = wordPart.substr(matches, wordPart.length() - matches);
-
+        // cout << currentNode->childList->size() << endl;
         for (int i = 0; i < currentNode->childList->size(); i++)
         {
+
             // auto stringFromChar = string(1, newWordPart[0]);
             PatriciaNode *child = currentNode->childList->at(i);
 
-            if (child->stringData.rfind(newWordPart, 0) == 0)
+            if (child->stringData.rfind(newWordPart[0], 0) == 0)
             {
+
+                // cout << newWordPart << endl;
                 inserted = true;
                 addRecursive(newWordPart, child);
             }
@@ -63,12 +72,13 @@ void PatriciaTree::addRecursive(string wordPart, PatriciaNode *currentNode)
 
         if (inserted == false)
         {
+            // cout << "insert " << newWordPart << endl;
             currentNode->childList->push_back(new PatriciaNode(newWordPart));
         }
     }
     else if (matches < wordPart.length())
     {
-
+        // cout << "match min " << matches << endl;
         string commonRoot = wordPart.substr(0, matches);
         string branchPreviousstringData = currentNode->stringData.substr(matches, currentNode->stringData.length() - matches);
         string branchNewstringData = wordPart.substr(matches, wordPart.length() - matches);
@@ -97,12 +107,12 @@ void PatriciaTree::addRecursive(string wordPart, PatriciaNode *currentNode)
     }
 }
 
-void PatriciaTree::deleteElement(string label)
+void PatriciaTrie::deleteElement(string label)
 {
     this->deleteRecursive(label, root);
 }
 
-void PatriciaTree::deleteRecursive(string wordPart, PatriciaNode *currentNode)
+void PatriciaTrie::deleteRecursive(string wordPart, PatriciaNode *currentNode)
 {
     auto matches = matchingConsecutiveChars(wordPart, currentNode);
 
@@ -115,7 +125,7 @@ void PatriciaTree::deleteRecursive(string wordPart, PatriciaNode *currentNode)
         {
             PatriciaNode *child = currentNode->childList->at(i);
 
-            if (child->stringData.rfind(newStringData, 0) == 0)
+            if (child->stringData.rfind(newStringData[0], 0) == 0)
             {
                 if (newStringData == child->stringData)
                 {
@@ -133,15 +143,76 @@ void PatriciaTree::deleteRecursive(string wordPart, PatriciaNode *currentNode)
     }
 }
 
-PatriciaTree::PatriciaTree()
+PatriciaTrie::PatriciaTrie()
 {
+
     root = new PatriciaNode();
 }
-PatriciaTree::PatriciaTree(string hash, string stringData)
-{
-    root = new PatriciaNode(stringData);
-}
-PatriciaTree::~PatriciaTree()
+
+PatriciaTrie::~PatriciaTrie()
 {
     delete root;
+}
+
+PatriciaTrie::PatriciaTrie(string value)
+{
+
+    root = new PatriciaNode(value);
+}
+
+void PatriciaTrie::printTree(PatriciaNode *node)
+{
+
+    if (node != nullptr)
+    {
+        cout << node->stringData << endl;
+        for (int i = 0; i < node->childList->size(); i++)
+        {
+            // cout << "contador print " << i << endl;
+            PatriciaNode *child = node->childList->at(i);
+            printTree(child);
+        }
+    }
+}
+
+void PatriciaTrie::printFullTree()
+{
+    printTree(root);
+}
+
+string PatriciaTrie::findPredecessorRecursive(std::string wordPart, PatriciaNode *currentNode, std::string carry)
+{
+    // //cout << wordPart << endl;
+    // cout << currentNode->stringData << endl;
+
+    auto matches = matchingConsecutiveChars(wordPart, currentNode);
+    // cout << matches << endl;
+    if ((matches == 0) || (currentNode == root) ||
+        ((matches > 0) && (matches < wordPart.length()) && (matches >= currentNode->stringData.length())))
+    {
+        // cout << matches << endl;
+        auto newStringData = wordPart.substr(matches, wordPart.length() - matches);
+        for (int i = 0; i < currentNode->childList->size(); i++)
+        {
+            PatriciaNode *child = currentNode->childList->at(i);
+
+            if (child->stringData.rfind(newStringData[0], 0) == 0)
+            {
+                return findPredecessorRecursive(newStringData, child, carry + currentNode->stringData);
+            }
+            return carry + currentNode->stringData;
+        }
+    }
+    else if (matches == currentNode->stringData.length())
+    {
+        return carry + currentNode->stringData;
+    }
+    else
+        return "";
+}
+
+string PatriciaTrie::findPredecessor(string value)
+{
+    string empty = "";
+    return findPredecessorRecursive(value, root, empty);
 }
