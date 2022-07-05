@@ -7,18 +7,7 @@ using namespace std;
 
 int main()
 {
-    // MerkleTree *t = new MerkleTree();
-    // delete t;
-    PatriciaTrie *pTree = new PatriciaTrie("");
-    pTree->addElement("roman");
-
-    pTree->addElement("romane");
-    pTree->addElement("romanus");
-    pTree->addElement("romulus");
-    pTree->addElement("maça");
-    pTree->addElement("mato");
-    pTree->printFullTree();
-    cout << "predecessor " << pTree->findPredecessor("romulus") << endl;
+    cout << "ARVORE DE MERKLE " << endl;
     std::vector<Node *> leaves;
     // create sample data
     leaves.push_back(new Node(hash_sha256("abcdefg")));
@@ -39,7 +28,19 @@ int main()
 
     MerkleTree *hashTree = new MerkleTree(leaves);
     // cout << hashTree->getRoot()->getHash() << endl;
-    // hashTree->printTree(hashTree->getRoot(), 0);
+    hashTree->printFullTree(hashTree->getRoot());
+
+    cout << "------------------- " << endl;
+    cout << "PATRICIA TRIE " << endl;
+    PatriciaTrie *pTree = new PatriciaTrie("");
+    pTree->addElement("maca");
+    pTree->addElement("macaco");
+    pTree->addElement("basta");
+    pTree->addElement("bastão");
+    pTree->addElement("maça");
+    pTree->addElement("mato");
+    pTree->printFullTree();
+    cout << "predecessor " << pTree->findPredecessor("macaco") << endl;
 
     for (unsigned int k = 0; k < leaves.size(); k++)
     {

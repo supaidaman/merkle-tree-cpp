@@ -6,7 +6,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Sat Jul  2 10:10:27 2022
+# Make data base, printed on Tue Jul  5 09:28:31 2022
 
 # Variables
 
@@ -107,7 +107,7 @@ GPG_AGENT_INFO = /run/user/1001/gnupg/S.gpg-agent:0:1
 # makefile (from 'Makefile', line 19)
 DEP = $(OBJ:$(OBJDIR)/%.o=%.d)
 # environment
-SESSION_MANAGER = local/brrjobitanl3617:@/tmp/.ICE-unix/5327,unix/brrjobitanl3617:/tmp/.ICE-unix/5327
+SESSION_MANAGER = local/brrjobitanl3617:@/tmp/.ICE-unix/7104,unix/brrjobitanl3617:/tmp/.ICE-unix/7104
 # environment
 XDG_RUNTIME_DIR = /run/user/1001
 # environment
@@ -133,6 +133,7 @@ LDFLAGS =
 # environment
 GDK_PIXBUF_MODULEDIR = /snap/code/99/usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders
 # default
+ 
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver output-sync check-symlink load
 # environment
 XDG_GREETER_DATA_DIR = /var/lib/lightdm-data/vinicius.lcosta
@@ -143,7 +144,7 @@ XDG_SESSION_DESKTOP = cinnamon
 # environment
 SSH_AUTH_SOCK = /run/user/1001/keyring/ssh
 # environment
-GIO_LAUNCHED_DESKTOP_FILE_PID = 15043
+GIO_LAUNCHED_DESKTOP_FILE_PID = 15458
 # automatic
 %F = $(notdir $%)
 # environment
@@ -163,7 +164,7 @@ PWD = /home/vinicius.lcosta/Documentos/doutorado/EDD/merkle-tree
 # environment
 XDG_SEAT = seat0
 # environment
-SSH_AGENT_PID = 5533
+SSH_AGENT_PID = 7266
 # environment
 ORIGINAL_XDG_CURRENT_DESKTOP = X-Cinnamon
 # environment
@@ -227,7 +228,7 @@ CC = g++
 # environment
 JAVA_HOME = /home/vinicius.lcosta/.jbang/currentjdk
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /run/user/1001/vscode-ipc-d9cd45b5-28f3-4d42-b115-476b703f5722.sock
+VSCODE_IPC_HOOK_EXTHOST = /run/user/1001/vscode-ipc-0ffc6fa8-93a4-4b9b-b598-14b42a13f2e7.sock
 # environment
 XDG_SESSION_ID = c2
 # environment
@@ -306,7 +307,6 @@ WDELOBJ = $(SRC:$(SRCDIR)/%$(EXT)=$(OBJDIR)\\%.o)
 # environment
 CONDA_PYTHON_EXE = /home/vinicius.lcosta/miniconda3/bin/python
 # environment
- 
 GJS_DEBUG_TOPICS = JS ERROR;JS LOG
 # automatic
 ^F = $(notdir $^)
@@ -329,11 +329,11 @@ EXE = .exe
 # environment
 LANG = C
 # environment
-VSCODE_PID = 15102
+VSCODE_PID = 15527
 # environment
 _CE_CONDA = 
 # variable set hash-table stats:
-# Load=159/1024=16%, Rehash=0, Collisions=34/220=15%
+# Load=159/1024=16%, Rehash=0, Collisions=34/215=16%
 
 # Pattern-specific Variable Values
 
@@ -342,9 +342,9 @@ _CE_CONDA =
 # Directories
 
 # . (device 2050, inode 152674): 20 files, no impossibilities.
-# src (device 2050, inode 1460801): 20 files, no impossibilities.
+# src (device 2050, inode 1460801): 11 files, no impossibilities.
 
-# 40 files, no impossibilities in 2 directories.
+# 31 files, no impossibilities in 2 directories.
 
 # Implicit Rules
 
@@ -379,9 +379,7 @@ all: merkle-tree
 #  Implicit rule search has been done.
 #  File does not exist.
 #  File has been updated.
-#  Needs to be updated (-q is set).
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/5=0%
+#  Successfully updated.
 
 .PHONY: clean cleandep cleanw cleandepw
 #  Implicit rule search has not been done.
@@ -390,11 +388,9 @@ all: merkle-tree
 
 merkle-tree: obj/merkle-tree.o obj/patricia-trie.o obj/node.o obj/main.o
 #  Implicit rule search has not been done.
-#  Last modified 2022-06-26 19:50:08.541481698
+#  Last modified 2022-07-02 12:21:42.679800013
 #  File has been updated.
-#  Needs to be updated (-q is set).
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/5=0%
+#  Successfully updated.
 #  recipe to execute (from 'Makefile', line 36):
 	$(CC) $(CXXFLAGS) -o $@ $^ $(LDFLAGS)
 
@@ -412,14 +408,19 @@ src/picosha2.hpp:
 #  File has been updated.
 #  Successfully updated.
 
-obj/main.o: src/main.cpp src/merkle-tree.hpp src/node.hpp src/patricia-trie.hpp src/sha.hpp src/picosha2.hpp
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+obj/main.o: src/main.cpp src/main.cpp src/merkle-tree.hpp src/node.hpp src/patricia-trie.hpp src/sha.hpp src/picosha2.hpp
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'main'
+#  Last modified 2022-07-02 12:21:02.6757666
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 47):
+	$(CC) $(CXXFLAGS) -o $@ -c $<
 
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
+ 
 #  Last modified 2022-06-26 19:49:56.74492266
 #  File has been updated.
 #  Successfully updated.
@@ -427,21 +428,25 @@ Makefile:
 # Not a target:
 src/patricia-trie.cpp:
 #  Implicit rule search has been done.
-#  Last modified 2022-06-04 16:49:00.673451627
+#  Last modified 2022-07-02 12:21:38.719796848
 #  File has been updated.
 #  Successfully updated.
 
 # Not a target:
 src/patricia-trie.hpp:
 #  Implicit rule search has been done.
-#  Last modified 2022-06-26 19:56:19.414078484
+#  Last modified 2022-07-02 12:00:46.151720355
 #  File has been updated.
 #  Successfully updated.
 
-obj/node.o: src/node.cpp src/node.hpp
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+obj/node.o: src/node.cpp src/node.cpp src/node.hpp
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'node'
+#  Last modified 2022-06-04 16:41:26.630843934
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 47):
+	$(CC) $(CXXFLAGS) -o $@ -c $<
 
 cleanw:
 #  Phony target (prerequisite of .PHONY).
@@ -461,7 +466,7 @@ src/sha.hpp:
 main.d: src/main.cpp
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: 'main'
-#  Last modified 2022-07-02 10:10:27.379196975
+#  Last modified 2022-07-05 09:28:30.931730839
 #  File has been updated.
 #  Successfully updated.
 #  recipe to execute (from 'Makefile', line 40):
@@ -501,7 +506,7 @@ cleandepw:
 node.d: src/node.cpp
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: 'node'
-#  Last modified 2022-07-02 10:10:27.419197121
+#  Last modified 2022-07-05 09:28:30.995730647
 #  File has been updated.
 #  Successfully updated.
 #  recipe to execute (from 'Makefile', line 40):
@@ -518,41 +523,23 @@ clean:
 # Not a target:
 src/main.cpp:
 #  Implicit rule search has been done.
-#  Last modified 2022-06-26 19:51:54.045972231
+#  Last modified 2022-07-02 12:21:00.155764388
 #  File has been updated.
 #  Successfully updated.
 
 obj/patricia-trie.o: src/patricia-trie.cpp src/patricia-trie.cpp src/patricia-trie.hpp
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: 'patricia-trie'
-#  Last modified 2022-06-04 16:49:08.093365738
+#  Last modified 2022-07-02 12:21:42.535799899
 #  File has been updated.
-#  Needs to be updated (-q is set).
-# automatic
-# @ := obj/patricia-trie.o
-# automatic
-# % := 
-# automatic
-# * := patricia-trie
-# automatic
-# + := src/patricia-trie.cpp src/patricia-trie.cpp src/patricia-trie.hpp
-# automatic
-# | := 
-# automatic
-# < := src/patricia-trie.cpp
-# automatic
-# ^ := src/patricia-trie.cpp src/patricia-trie.hpp
-# automatic
-# ? := src/patricia-trie.hpp
-# variable set hash-table stats:
-# Load=8/32=25%, Rehash=0, Collisions=1/15=7%
+#  Successfully updated.
 #  recipe to execute (from 'Makefile', line 47):
 	$(CC) $(CXXFLAGS) -o $@ -c $<
 
 merkle-tree.d: src/merkle-tree.cpp
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: 'merkle-tree'
-#  Last modified 2022-07-02 10:10:27.583197725
+#  Last modified 2022-07-05 09:28:31.207730016
 #  File has been updated.
 #  Successfully updated.
 #  recipe to execute (from 'Makefile', line 40):
@@ -568,26 +555,26 @@ src/node.cpp:
 patricia-trie.d: src/patricia-trie.cpp
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: 'patricia-trie'
-#  Last modified 2022-07-02 10:10:27.479197343
+#  Last modified 2022-07-05 09:28:31.075730409
 #  File has been updated.
 #  Successfully updated.
 #  recipe to execute (from 'Makefile', line 40):
 	@$(CPP) $(CFLAGS) $< -MM -MT $(@:%.d=$(OBJDIR)/%.o) >$@
 
 # files hash-table stats:
-# Load=27/1024=3%, Rehash=0, Collisions=10/94=11%
+# Load=27/1024=3%, Rehash=0, Collisions=10/98=10%
 # VPATH Search Paths
 
 # No 'vpath' search paths.
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 67 / storage = 747 B / avg = 11 B
-# current buf: size = 8162 B / used = 747 B / count = 67 / avg = 11 B
+# strcache buffers: 1 (0) / strings = 58 / storage = 631 B / avg = 10 B
+# current buf: size = 8162 B / used = 631 B / count = 58 / avg = 10 B
 
-# strcache performance: lookups = 132 / hit rate = 49%
+# strcache performance: lookups = 129 / hit rate = 55%
 # hash-table stats:
-# Load=67/8192=1%, Rehash=0, Collisions=6/132=5%
-# Finished Make data base on Sat Jul  2 10:10:27 2022
+# Load=58/8192=1%, Rehash=0, Collisions=3/129=2%
+# Finished Make data base on Tue Jul  5 09:28:31 2022
 
  
