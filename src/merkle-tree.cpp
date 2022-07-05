@@ -46,10 +46,8 @@ void MerkleTree::printTree(std::string prefix, Node *node, bool isLeft)
 
         std::cout << (isLeft ? "├──" : "└──");
 
-        // print the value of the node
         std::cout << node->getHash() << std::endl;
 
-        // enter the next tree level - left and right branch
         printTree(prefix + (isLeft ? "│   " : "    "), node->getLeft(), true);
         printTree(prefix + (isLeft ? "│   " : "    "), node->getRight(), false);
     }

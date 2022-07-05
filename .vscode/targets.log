@@ -6,11 +6,12 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Tue Jul  5 09:28:31 2022
+# Make data base, printed on Tue Jul  5 14:16:04 2022
 
 # Variables
 
 # automatic
+ 
 <D = $(patsubst %/,%,$(dir $<))
 # automatic
 ?F = $(notdir $?)
@@ -34,6 +35,8 @@ VSCODE_LOG_NATIVE = false
 NVM_INC = /home/vinicius.lcosta/.nvm/versions/node/v16.15.0/include/node
 # automatic
 ?D = $(patsubst %/,%,$(dir $?))
+# environment
+GRADLE_HOME = /home/vinicius.lcosta/.sdkman/candidates/gradle/current
 # environment
 GTK3_MODULES = xapp-gtk3-module
 # automatic
@@ -101,19 +104,23 @@ GSETTINGS_SCHEMA_DIR = /snap/code/99/usr/share/glib-2.0/schemas
 # default
 MAKE_HOST := x86_64-pc-linux-gnu
 # environment
-PATH = /home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin:/home/vinicius.lcosta/.jbang/bin:/home/vinicius.lcosta/.jbang/currentjdk/bin:/home/vinicius.lcosta/miniconda3/bin:/home/vinicius.lcosta/miniconda3/condabin:/home/vinicius.lcosta/.nvm/versions/node/v16.15.0/bin:/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/usr/local/go/bin:/home/vinicius.lcosta/go/bin:/usr/local/go/bin:/usr/local/go/bin:/home/vinicius.lcosta/.pulumi/bin
+PATH = /home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin:/home/vinicius.lcosta/.sdkman/candidates/gradle/current/bin:/home/vinicius.lcosta/.jbang/bin:/home/vinicius.lcosta/.jbang/currentjdk/bin:/home/vinicius.lcosta/miniconda3/bin:/home/vinicius.lcosta/miniconda3/condabin:/home/vinicius.lcosta/.nvm/versions/node/v16.15.0/bin:/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/usr/local/go/bin:/home/vinicius.lcosta/go/bin:/usr/local/go/bin:/usr/local/go/bin:/home/vinicius.lcosta/.pulumi/bin
 # environment
 GPG_AGENT_INFO = /run/user/1001/gnupg/S.gpg-agent:0:1
 # makefile (from 'Makefile', line 19)
 DEP = $(OBJ:$(OBJDIR)/%.o=%.d)
 # environment
-SESSION_MANAGER = local/brrjobitanl3617:@/tmp/.ICE-unix/7104,unix/brrjobitanl3617:/tmp/.ICE-unix/7104
+SESSION_MANAGER = local/brrjobitanl3617:@/tmp/.ICE-unix/5487,unix/brrjobitanl3617:/tmp/.ICE-unix/5487
 # environment
 XDG_RUNTIME_DIR = /run/user/1001
 # environment
 GDK_PIXBUF_MODULE_FILE = /home/vinicius.lcosta/snap/code/common/.cache/gdk-pixbuf-loaders.cache
 # environment
 SNAP = /snap/code/99
+# environment
+SDKMAN_DIR = /home/vinicius.lcosta/.sdkman
+# environment
+SDKMAN_CANDIDATES_API = https://api.sdkman.io/2
 # environment
 UBUNTU_MENUPROXY = 1
 # environment
@@ -122,6 +129,8 @@ NVM_BIN = /home/vinicius.lcosta/.nvm/versions/node/v16.15.0/bin
 SNAP_VERSION = 30d9c6cd
 # environment
 CONDA_PREFIX = /home/vinicius.lcosta/miniconda3
+# environment
+SDKMAN_PLATFORM = linuxx64
 # environment
 VSCODE_LOG_STACK = false
 # environment
@@ -133,7 +142,6 @@ LDFLAGS =
 # environment
 GDK_PIXBUF_MODULEDIR = /snap/code/99/usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders
 # default
- 
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver output-sync check-symlink load
 # environment
 XDG_GREETER_DATA_DIR = /var/lib/lightdm-data/vinicius.lcosta
@@ -144,7 +152,7 @@ XDG_SESSION_DESKTOP = cinnamon
 # environment
 SSH_AUTH_SOCK = /run/user/1001/keyring/ssh
 # environment
-GIO_LAUNCHED_DESKTOP_FILE_PID = 15458
+GIO_LAUNCHED_DESKTOP_FILE_PID = 37296
 # automatic
 %F = $(notdir $%)
 # environment
@@ -164,7 +172,7 @@ PWD = /home/vinicius.lcosta/Documentos/doutorado/EDD/merkle-tree
 # environment
 XDG_SEAT = seat0
 # environment
-SSH_AGENT_PID = 7266
+SSH_AGENT_PID = 5637
 # environment
 ORIGINAL_XDG_CURRENT_DESKTOP = X-Cinnamon
 # environment
@@ -215,6 +223,8 @@ MAKELEVEL := 0
 SNAP_REAL_HOME = /home/vinicius.lcosta
 # environment
 CONDA_DEFAULT_ENV = base
+# environment
+SDKMAN_VERSION = 5.15.0
 # default
 MAKE = $(MAKE_COMMAND)
 # default
@@ -224,11 +234,12 @@ SNAP_USER_DATA = /home/vinicius.lcosta/snap/code/99
 # environment
 SHLVL = 0
 # makefile (from 'Makefile', line 6)
+ 
 CC = g++
 # environment
 JAVA_HOME = /home/vinicius.lcosta/.jbang/currentjdk
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /run/user/1001/vscode-ipc-0ffc6fa8-93a4-4b9b-b598-14b42a13f2e7.sock
+VSCODE_IPC_HOOK_EXTHOST = /run/user/1001/vscode-ipc-f2a22f25-a4e5-4d11-a4b2-6fd87ee23ab0.sock
 # environment
 XDG_SESSION_ID = c2
 # environment
@@ -301,6 +312,8 @@ endef
 # environment
 SNAP_NAME = code
 # environment
+SDKMAN_CANDIDATES_DIR = /home/vinicius.lcosta/.sdkman/candidates
+# environment
 LC_ALL = C
 # makefile (from 'Makefile', line 26)
 WDELOBJ = $(SRC:$(SRCDIR)/%$(EXT)=$(OBJDIR)\\%.o)
@@ -329,11 +342,12 @@ EXE = .exe
 # environment
 LANG = C
 # environment
-VSCODE_PID = 15527
+VSCODE_PID = 37353
 # environment
 _CE_CONDA = 
 # variable set hash-table stats:
-# Load=159/1024=16%, Rehash=0, Collisions=34/215=16%
+ 
+# Load=165/1024=16%, Rehash=0, Collisions=35/221=16%
 
 # Pattern-specific Variable Values
 
@@ -370,7 +384,7 @@ src/node.hpp:
 # Not a target:
 src/merkle-tree.cpp:
 #  Implicit rule search has been done.
-#  Last modified 2022-06-16 18:00:08.221935824
+#  Last modified 2022-07-05 09:42:42.415013314
 #  File has been updated.
 #  Successfully updated.
 
@@ -388,7 +402,7 @@ all: merkle-tree
 
 merkle-tree: obj/merkle-tree.o obj/patricia-trie.o obj/node.o obj/main.o
 #  Implicit rule search has not been done.
-#  Last modified 2022-07-02 12:21:42.679800013
+#  Last modified 2022-07-05 10:11:40.149267826
 #  File has been updated.
 #  Successfully updated.
 #  recipe to execute (from 'Makefile', line 36):
@@ -397,7 +411,8 @@ merkle-tree: obj/merkle-tree.o obj/patricia-trie.o obj/node.o obj/main.o
 # Not a target:
 src/merkle-tree.hpp:
 #  Implicit rule search has been done.
-#  Last modified 2022-06-16 17:45:53.805236588
+ 
+#  Last modified 2022-07-05 09:37:11.090946552
 #  File has been updated.
 #  Successfully updated.
 
@@ -411,7 +426,7 @@ src/picosha2.hpp:
 obj/main.o: src/main.cpp src/main.cpp src/merkle-tree.hpp src/node.hpp src/patricia-trie.hpp src/sha.hpp src/picosha2.hpp
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: 'main'
-#  Last modified 2022-07-02 12:21:02.6757666
+#  Last modified 2022-07-05 10:11:39.917267177
 #  File has been updated.
 #  Successfully updated.
 #  recipe to execute (from 'Makefile', line 47):
@@ -420,7 +435,6 @@ obj/main.o: src/main.cpp src/main.cpp src/merkle-tree.hpp src/node.hpp src/patri
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
- 
 #  Last modified 2022-06-26 19:49:56.74492266
 #  File has been updated.
 #  Successfully updated.
@@ -428,14 +442,14 @@ Makefile:
 # Not a target:
 src/patricia-trie.cpp:
 #  Implicit rule search has been done.
-#  Last modified 2022-07-02 12:21:38.719796848
+#  Last modified 2022-07-05 10:10:00.728947443
 #  File has been updated.
 #  Successfully updated.
 
 # Not a target:
 src/patricia-trie.hpp:
 #  Implicit rule search has been done.
-#  Last modified 2022-07-02 12:00:46.151720355
+#  Last modified 2022-07-05 10:11:33.725249684
 #  File has been updated.
 #  Successfully updated.
 
@@ -462,11 +476,12 @@ src/sha.hpp:
 #  Last modified 2022-06-16 17:44:47.209492582
 #  File has been updated.
 #  Successfully updated.
+ 
 
 main.d: src/main.cpp
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: 'main'
-#  Last modified 2022-07-05 09:28:30.931730839
+#  Last modified 2022-07-05 14:16:03.800822573
 #  File has been updated.
 #  Successfully updated.
 #  recipe to execute (from 'Makefile', line 40):
@@ -475,7 +490,7 @@ main.d: src/main.cpp
 obj/merkle-tree.o: src/merkle-tree.cpp src/merkle-tree.cpp src/merkle-tree.hpp src/node.hpp src/sha.hpp src/picosha2.hpp
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: 'merkle-tree'
-#  Last modified 2022-06-26 19:50:07.445430273
+#  Last modified 2022-07-05 09:54:41.342177758
 #  File has been updated.
 #  Successfully updated.
 #  recipe to execute (from 'Makefile', line 47):
@@ -506,7 +521,7 @@ cleandepw:
 node.d: src/node.cpp
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: 'node'
-#  Last modified 2022-07-05 09:28:30.995730647
+#  Last modified 2022-07-05 14:16:03.884822331
 #  File has been updated.
 #  Successfully updated.
 #  recipe to execute (from 'Makefile', line 40):
@@ -523,14 +538,14 @@ clean:
 # Not a target:
 src/main.cpp:
 #  Implicit rule search has been done.
-#  Last modified 2022-07-02 12:21:00.155764388
+#  Last modified 2022-07-05 10:09:44.664887143
 #  File has been updated.
 #  Successfully updated.
 
 obj/patricia-trie.o: src/patricia-trie.cpp src/patricia-trie.cpp src/patricia-trie.hpp
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: 'patricia-trie'
-#  Last modified 2022-07-02 12:21:42.535799899
+#  Last modified 2022-07-05 10:11:39.217265215
 #  File has been updated.
 #  Successfully updated.
 #  recipe to execute (from 'Makefile', line 47):
@@ -539,8 +554,9 @@ obj/patricia-trie.o: src/patricia-trie.cpp src/patricia-trie.cpp src/patricia-tr
 merkle-tree.d: src/merkle-tree.cpp
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: 'merkle-tree'
-#  Last modified 2022-07-05 09:28:31.207730016
+#  Last modified 2022-07-05 14:16:04.188821458
 #  File has been updated.
+ 
 #  Successfully updated.
 #  recipe to execute (from 'Makefile', line 40):
 	@$(CPP) $(CFLAGS) $< -MM -MT $(@:%.d=$(OBJDIR)/%.o) >$@
@@ -555,7 +571,7 @@ src/node.cpp:
 patricia-trie.d: src/patricia-trie.cpp
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: 'patricia-trie'
-#  Last modified 2022-07-05 09:28:31.075730409
+#  Last modified 2022-07-05 14:16:04.064821814
 #  File has been updated.
 #  Successfully updated.
 #  recipe to execute (from 'Makefile', line 40):
@@ -575,6 +591,6 @@ patricia-trie.d: src/patricia-trie.cpp
 # strcache performance: lookups = 129 / hit rate = 55%
 # hash-table stats:
 # Load=58/8192=1%, Rehash=0, Collisions=3/129=2%
-# Finished Make data base on Tue Jul  5 09:28:31 2022
+# Finished Make data base on Tue Jul  5 14:16:04 2022
 
  

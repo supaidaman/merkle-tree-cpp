@@ -10,15 +10,14 @@ int main()
     cout << "ARVORE DE MERKLE " << endl;
     std::vector<Node *> leaves;
     // create sample data
-    leaves.push_back(new Node(hash_sha256("abcdefg")));
-    leaves.push_back(new Node(hash_sha256("qwerty12345")));
-    leaves.push_back(new Node(hash_sha256("!@(@#)E&")));
-    leaves.push_back(new Node(hash_sha256("ajosdhuhsdioa adsijd asjiod q9p0ad a.")));
+    leaves.push_back(new Node(hash_sha256("qwqwqwqdsdfg")));
+    leaves.push_back(new Node(hash_sha256("Lorem ipsum dolor sit amet")));
+    leaves.push_back(new Node(hash_sha256("Maecenas vitae magna blandit, sagittis tortor quis")));
     leaves.push_back(new Node(hash_sha256("test01234")));
-    leaves.push_back(new Node(hash_sha256("7846546521")));
-    leaves.push_back(new Node(hash_sha256("asd970123+_?>?< f")));
-    leaves.push_back(new Node(hash_sha256("op_) 4654asd21")));
-    leaves.push_back(new Node(hash_sha256("12893 d970123+_qweawdf")));
+    leaves.push_back(new Node(hash_sha256("5465465489756456")));
+    leaves.push_back(new Node(hash_sha256("hitohitohinogotokisamakirara")));
+    leaves.push_back(new Node(hash_sha256("mais uma string para testar")));
+    leaves.push_back(new Node(hash_sha256("Nam vel elit ligula. Aliquam lacus magna")));
     // initialize leaves
     for (unsigned int i = 0; i < leaves.size(); i++)
     {
