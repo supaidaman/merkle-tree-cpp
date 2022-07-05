@@ -37,8 +37,10 @@ private:
     PatriciaNode *root;
     void addRecursive(std::string wordPart, PatriciaNode *currentNode);
     void deleteRecursive(std::string wordPart, PatriciaNode *currentNode);
-    std::string findPredecessorRecursive(std::string string, PatriciaNode *currentNode, std::string carry);
+
     void printTree(PatriciaNode *node);
+    void printPath(std::vector<std::string> vec);
+    void printAllPaths(PatriciaNode *root, std::vector<std::string> vec);
 
 public:
     void addElement(std::string element); // transaction
@@ -46,9 +48,11 @@ public:
     PatriciaTrie();
     PatriciaTrie(std::string element);
     ~PatriciaTrie();
-    void deleteElement(std::string label);
-    std::string findPredecessor(std::string string);
+    void deleteElement(std::string element);
+
     void printFullTree();
+    void printFullTree(PatriciaNode *root);
+    PatriciaNode *getRoot() { return root; };
     // bool bit();
     // bool search(int i);
     // Node *search(Node *node);

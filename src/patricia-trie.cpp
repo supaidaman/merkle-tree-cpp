@@ -180,39 +180,43 @@ void PatriciaTrie::printFullTree()
     printTree(root);
 }
 
-string PatriciaTrie::findPredecessorRecursive(std::string wordPart, PatriciaNode *currentNode, std::string carry)
+void PatriciaTrie::printPath(vector<string> elements)
 {
-    // //cout << wordPart << endl;
-    // cout << currentNode->stringData << endl;
 
-    auto matches = matchingConsecutiveChars(wordPart, currentNode);
-    // cout << matches << endl;
-    if ((matches == 0) || (currentNode == root) ||
-        ((matches > 0) && (matches < wordPart.length()) && (matches >= currentNode->stringData.length())))
+    for (string ele : elements)
     {
-        // cout << matches << endl;
-        auto newStringData = wordPart.substr(matches, wordPart.length() - matches);
-        for (int i = 0; i < currentNode->childList->size(); i++)
-        {
-            PatriciaNode *child = currentNode->childList->at(i);
-
-            if (child->stringData.rfind(newStringData[0], 0) == 0)
-            {
-                return findPredecessorRecursive(newStringData, child, carry + currentNode->stringData);
-            }
-            return carry + currentNode->stringData;
-        }
+        cout << ele << " ";
     }
-    else if (matches == currentNode->stringData.length())
-    {
-        return carry + currentNode->stringData;
-    }
-    else
-        return "";
+    cout << endl;
 }
 
-string PatriciaTrie::findPredecessor(string value)
+void PatriciaTrie::printAllPaths(PatriciaNode *root, vector<std::string> vec)
 {
-    string empty = "";
-    return findPredecessorRecursive(value, root, empty);
+    // If root is null
+    if (!root)
+        return;
+
+    vec.push_back(root->stringData);
+
+    if (root->childList->empty())
+    {
+
+        printPath(vec);
+        vec.pop_back();
+        return;
+    }
+
+    for (int i = 0;
+         i < root->childList->size(); i++)
+
+        printAllPaths(root->childList->at(i), vec);
+}
+
+// Function to print root to leaf path
+void PatriciaTrie::printFullTree(PatriciaNode *root)
+{
+    if (!root)
+        return;
+    vector<string> vec;
+    printAllPaths(root, vec);
 }
