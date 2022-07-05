@@ -43,7 +43,7 @@ private:
     void printAllPaths(PatriciaNode *root, std::vector<std::string> vec);
 
 public:
-    void addElement(std::string element); // transaction
+    void addElement(std::string element);
 
     PatriciaTrie();
     PatriciaTrie(std::string element);
@@ -53,7 +53,4 @@ public:
     void printFullTree();
     void printFullTree(PatriciaNode *root);
     PatriciaNode *getRoot() { return root; };
-    // bool bit();
-    // bool search(int i);
-    // Node *search(Node *node);
 };
