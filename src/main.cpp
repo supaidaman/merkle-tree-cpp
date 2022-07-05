@@ -39,8 +39,10 @@ int main()
     pTree->addElement("bastão");
     pTree->addElement("maça");
     pTree->addElement("mato");
+    cout << "Nós existentes na trie: " << endl;
     pTree->printFullTree();
-    cout << "predecessor " << pTree->findPredecessor("macaco") << endl;
+    cout << "Caminhos existentes na trie: " << endl;
+    pTree->printFullTree(pTree->getRoot());
 
     for (unsigned int k = 0; k < leaves.size(); k++)
     {

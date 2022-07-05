@@ -37,25 +37,6 @@ MerkleTree::MerkleTree(std::vector<Node *> data)
     }
     this->root = data[0];
 }
-// void MerkleTree::printTree(Node *n, int i)
-// {
-//     if (n)
-//     {
-//         if (n->getLeft())
-//         {
-//             printTree(n->getLeft(), i + 4);
-//         }
-//         if (n->getRight())
-//         {
-//             printTree(n->getRight(), i + 4);
-//         }
-//         if (i)
-//         {
-//             std::cout << std::setw(i) << ' ';
-//         }
-//         std::cout << n->getHash() << "\n ";
-//     }
-// }
 
 void MerkleTree::printTree(std::string prefix, Node *node, bool isLeft)
 {
